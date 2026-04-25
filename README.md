@@ -1,42 +1,47 @@
 # Chief Information Officers Council (chief-information-officers-council)
-The Chief Information Officers Council (CIOC) is a collective body comprising the heads of information technology departments across various government agencies and departments. The council is responsible for establishing and implementing strategic plans and policies related to information technology within the government. They collaborate on initiatives to improve data security, modernize IT infrastructure, and enhance digital services for citizens. The CIOC also serves as a forum for sharing best practices, coordinating resources, and addressing common challenges faced by government IT leaders. By fostering collaboration and innovation, the CIOC plays a crucial role in driving digital transformation and ensuring the effective use of technology to support government operations and services.
+
+The Chief Information Officers Council (CIOC) is the principal interagency forum for improving agency practices related to the design, acquisition, development, modernization, use, sharing, and performance of federal information resources. Established by Executive Order 13011 in 1996 and codified in the E-Government Act of 2002 (44 U.S.C. 3603), the Council coordinates federal IT policy, cybersecurity, cloud adoption, and IT workforce development across executive branch agencies.
 
 **URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/chief-information-officers-council/refs/heads/main/apis.yml)
 
 ## Scope
 
-- **Type:** Index 
-- **Position:** Consumer 
-- **Access:** 3rd-Party 
+- **Type:** Index
+- **Position:** Consumer
+- **Access:** 3rd-Party
 
-## Tags:
+## Tags
 
- - Federal Government
+- CIO, Cloud, Cybersecurity, E-Government, Federal Government, IT Modernization, Information Technology, Interagency Council, OMB, Public Sector
 
 ## Timestamps
 
-- **Created:** 2024-12-03 
-- **Modified:** 2025-03-01 
+- **Created:** 2024-12-03
+- **Modified:** 2026-04-23
 
 ## APIs
 
-### Chief Information Officers Council
-The Chief Information Officers Council (CIOC) is a governing body comprised of senior technology leaders within an organization that is responsible for overseeing the development and implementation of information technology strategies and initiatives. This council plays a critical role in driving digital transformation and innovation, aligning technology investments with business goals, and ensuring the security and integrity of information systems. The CIOC collaborates closely with executive leadership to provide guidance on technology trends and best practices, facilitate communication and coordination across different departments, and promote the efficient use of technology resources to support the organization's overall mission and objectives. By bringing together the top IT executives in the organization, the CIOC helps to foster a culture of innovation and excellence in technology management.
+### Chief Information Officers Council Resources
 
-**Human URL:** [https://www.cio.gov](https://www.cio.gov)
+The CIOC publishes its charter, leadership roster, committee output, playbooks, and federal IT guidance through cio.gov and councils.gov. The Council does not expose a dedicated developer API; resources are distributed as web pages, PDFs, and downloadable documents alongside OMB and GSA federal IT management resources.
 
+- **Human URL:** [https://www.councils.gov/cioc](https://www.councils.gov/cioc)
 
-#### Tags:
+## Common Properties
 
- - Federal Government
-
-#### Properties
-
-- [Documentation](https://www.cio.gov)
+- [Website](https://www.councils.gov/cioc)
+- [Legacy Website (cio.gov)](https://www.cio.gov)
+- [Parent Agency: Office of Management and Budget](https://www.whitehouse.gov/omb/)
+- [Statute: E-Government Act of 2002](https://www.law.cornell.edu/uscode/text/44/3603)
+- [Federal CIO Office](https://www.whitehouse.gov/omb/management/ofcio/)
+- [GSA Office of Governmentwide Policy](https://www.gsa.gov/policy-regulations/policy/it-policy)
+- [FedRAMP](https://www.fedramp.gov)
+- [Technology Modernization Fund](https://tmf.cio.gov)
+- [USA.gov](https://www.usa.gov/agencies/chief-information-officers-council)
+- [Privacy Policy](https://www.councils.gov/privacy)
 
 ## Maintainers
 
 **FN:** Kin Lane
 
-**Email:** info@apievangelist.com
-
+**Email:** kin@apievangelist.com
