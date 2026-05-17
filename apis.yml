@@ -1,6 +1,6 @@
 aid: chief-information-officers-council
 name: Chief Information Officers Council
-x-type: government
+kind: government
 description: >-
   The Chief Information Officers Council (CIOC) is the principal interagency
   forum for improving agency practices related to the design, acquisition,
