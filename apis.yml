@@ -19,7 +19,7 @@ description: >-
 type: Index
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: >-
   https://raw.githubusercontent.com/api-evangelist/chief-information-officers-council/refs/heads/main/apis.yml
 tags:
@@ -46,7 +46,7 @@ apis:
       does not expose a dedicated developer API; resources are distributed
       as web pages, PDFs, and downloadable documents alongside OMB and GSA
       federal IT management resources.
-    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.councils.gov/cioc
     tags:
       - Federal Government
