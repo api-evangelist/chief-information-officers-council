@@ -59,6 +59,8 @@ apis:
       - type: Statute
         url: https://www.law.cornell.edu/uscode/text/44/3603
 common:
+  - type: DomainSecurity
+    url: security/chief-information-officers-council-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/federal-cio-council
   - type: Website
