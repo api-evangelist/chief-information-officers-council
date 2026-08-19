@@ -47,7 +47,7 @@ tags:
   - Public Sector
 created: '2024-12-03'
 modified: '2026-04-23'
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 apis:
   - aid: chief-information-officers-council:cioc-resources
     name: Chief Information Officers Council Resources
