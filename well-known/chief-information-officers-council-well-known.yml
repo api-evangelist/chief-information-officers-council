@@ -1,0 +1,173 @@
+generated: '2026-09-05'
+method: probed
+source: live GET of the named /.well-known/ path list on every host this record knows
+note: >-
+  The Chief Information Officers Council serves NO /.well-known/ discovery document from either of
+  its own web hosts. www.councils.gov (the council's current home since the March 2026 consolidation)
+  returns a real HTML 404 page on every probed path, and cio.gov — the council's legacy domain —
+  301-redirects the site root to https://www.councils.gov/cioc/ while returning 404 on every
+  /.well-known/ path. The one 200 in this probe is a security.txt on tmf.cio.gov, the Technology
+  Modernization Fund's WordPress site; that document declares
+  "Canonical: https://gsa.gov/.well-known/security.txt" and contacts gsa-vulnerability-reports@gsa.gov,
+  so it is GSA's government-wide vulnerability disclosure policy mirrored onto a cio.gov subdomain,
+  NOT a document the CIO Council authored or serves for its own surface. NO WellKnown, SecurityTxt or
+  Security pointer is emitted in apis.yml on the strength of it — attributing GSA's VDP to the council
+  would credit the council with a surface it does not operate.
+hit_count: 0
+hit_count_note: >-
+  Zero documents served by a host the Chief Information Officers Council operates. One 200 was
+  observed on an EXCLUDED host — see excluded_hosts below — and it belongs to GSA, so it is
+  deliberately kept out of hosts[] rather than counted here.
+path_echo_control: passed
+hosts:
+  - host: https://www.councils.gov
+    role: council website (current)
+    path_echo_control: passed
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 301
+        note: redirects; no document served
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+        note: redirects; no document served
+      - path: /.well-known/oauth-protected-resource
+        status: 301
+        note: redirects; no document served
+      - path: /.well-known/api-catalog
+        status: 301
+        note: redirects; no document served
+      - path: /.well-known/api-catalog.json
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /apis.yml
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/cioc-negative-control-7f3ab91c.json
+        status: 404
+        note: negative control — correctly 404, this host does not echo paths
+  - host: https://councils.gov
+    role: apex domain
+    path_echo_control: passed
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: apex 301s every path to https://www.councils.gov
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/apis.json
+        status: 301
+      - path: /apis.json
+        status: 301
+      - path: /.well-known/agent-card.json
+        status: 301
+      - path: /.well-known/agent.json
+        status: 301
+      - path: /.well-known/cioc-negative-control-7f3ab91c.json
+        status: 301
+        note: negative control — 301, not a 2xx; no document served
+  - host: https://cio.gov
+    role: legacy council domain (site root 301s to https://www.councils.gov/cioc/)
+    path_echo_control: passed
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/api-catalog.json
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /apis.yml
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/cioc-negative-control-7f3ab91c.json
+        status: 404
+        note: negative control — correctly 404
+
+# EXCLUDED FROM hosts[] ON PURPOSE. tmf.cio.gov is the Technology Modernization Fund's WordPress
+# site, operated by GSA on a cio.gov subdomain. Its security.txt self-declares
+# "Canonical: https://gsa.gov/.well-known/security.txt" and routes disclosure to
+# gsa-vulnerability-reports@gsa.gov and hackerone.com/gsa_vdp — it is GSA's government-wide VDP,
+# mirrored, not a document the CIO Council authored. Counting it in hosts[] would hand the council
+# credit for a surface GSA operates, so the probe is recorded here with the body saved as evidence
+# and no scoring effect.
+excluded_hosts:
+  - host: https://tmf.cio.gov
+    role: Technology Modernization Fund program site (WordPress, GSA-operated) on a cio.gov subdomain
+    path_echo_control: passed
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: chief-information-officers-council-tmf-security.txt
+        owner: General Services Administration
+        canonical: https://gsa.gov/.well-known/security.txt
+        note: >-
+          RFC 9116 document, served and parseable, but self-declares gsa.gov as its canonical host and
+          points at GSA's government-wide VDP and HackerOne program. Recorded as evidence; NOT counted
+          as a CIO Council surface.
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/oauth-protected-resource
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/api-catalog.json
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/ucp.json
+        status: 404
+      - path: /.well-known/acp.json
+        status: 404
+      - path: /.well-known/aauth-resource.json
+        status: 404
+      - path: /.well-known/apis.json
+        status: 404
+      - path: /apis.json
+        status: 404
+      - path: /apis.yml
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+      - path: /.well-known/cioc-negative-control-7f3ab91c.json
+        status: 404
+        note: negative control — correctly 404 (WordPress 404 template)

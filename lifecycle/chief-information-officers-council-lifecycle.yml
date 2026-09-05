@@ -1,0 +1,46 @@
+generated: '2026-09-05'
+method: searched
+source: https://www.councils.gov/cioc/
+note: >-
+  The Chief Information Officers Council publishes no API, and therefore no API versioning policy,
+  deprecation policy, Sunset/Deprecation header support, SLA or status page. What the council DOES have
+  is a documented WEB-PROPERTY lifecycle event, verified by probe: its long-standing home at cio.gov was
+  retired in March 2026 when GSA consolidated ten interagency council websites into councils.gov.
+  cio.gov now issues an HTTP 301 to https://www.councils.gov/cioc/ (verified 2026-09-05), and
+  www.cio.gov no longer presents a valid certificate for that name. This is recorded here because a
+  consumer holding a cio.gov URL needs to know where the content moved; it is NOT an API lifecycle claim.
+api_lifecycle:
+  has_api: false
+  versioning: null
+  deprecation: null
+  sunset_header: null
+  sla: null
+  status_page: null
+  deprecated_operations: []
+web_property_lifecycle:
+  - property: cio.gov
+    state: redirected
+    successor: https://www.councils.gov/cioc/
+    observed_status: 301
+    observed: '2026-09-05'
+    event: >-
+      GSA consolidated the interagency council websites into councils.gov (announced March 2026);
+      legacy council sites were decommissioned and core content migrated.
+    evidence:
+      - url: https://cio.gov/
+        status: 301
+        redirect_to: https://www.councils.gov/cioc
+      - url: https://www.councils.gov/cioc/
+        status: 200
+      - url: https://federalnewsnetwork.com/it-modernization/2026/03/trump-administration-merges-interagency-council-websites-into-single-hub/
+        kind: press coverage of the consolidation
+  - property: www.cio.gov
+    state: broken
+    observed: '2026-09-05'
+    event: >-
+      TLS handshake fails — the certificate presented does not carry www.cio.gov as a subject
+      alternative name. The apex (cio.gov) works and redirects; the www host does not.
+    evidence:
+      - url: https://www.cio.gov/
+        status: 0
+        error: "SSL: no alternative certificate subject name matches target host name 'www.cio.gov'"

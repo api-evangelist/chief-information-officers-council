@@ -15,7 +15,10 @@ description: >-
   IT initiatives such as cybersecurity and cloud adoption, supports federal
   IT workforce development, and disseminates effective IT management
   practices across the federal government. The Council publishes guidance,
-  playbooks, and resources through cio.gov and councils.gov.
+  playbooks, committee output and its charter through councils.gov, the
+  consolidated federal executive councils hub GSA launched in March 2026; its
+  long-standing home at cio.gov now redirects there. The Council operates no
+  developer program and publishes no API.
 type: Index
 deliveryModel:
   model: unknown
@@ -68,7 +71,7 @@ tags_raw:
   - OMB
   - Public Sector
 created: '2024-12-03'
-modified: '2026-04-23'
+modified: '2026-09-05'
 specificationVersion: '0.23'
 apis:
   - aid: chief-information-officers-council:cioc-resources
@@ -79,7 +82,9 @@ apis:
       and federal IT guidance through cio.gov and councils.gov. The Council
       does not expose a dedicated developer API; resources are distributed
       as web pages, PDFs, and downloadable documents alongside OMB and GSA
-      federal IT management resources.
+      federal IT management resources. Probed 2026-09-05 across councils.gov,
+      cio.gov and tmf.cio.gov: no OpenAPI, GraphQL, MCP, AsyncAPI, agent card
+      or apis.json is served from any host in this record.
     image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://www.councils.gov/cioc
     tags:
@@ -92,18 +97,26 @@ apis:
       - type: Documentation
         url: https://www.councils.gov/cioc
       - type: LegacyWebsite
-        url: https://www.cio.gov
+        url: https://cio.gov
       - type: Statute
         url: https://www.law.cornell.edu/uscode/text/44/3603
 common:
   - type: DomainSecurity
     url: security/chief-information-officers-council-domain-security.yml
+  - type: LLMsTxt
+    url: llms/chief-information-officers-council-llms.txt
+  - type: Lifecycle
+    url: lifecycle/chief-information-officers-council-lifecycle.yml
+  - type: Plans
+    url: plans/chief-information-officers-council-plans-pricing.yml
+  - type: FinOps
+    url: finops/chief-information-officers-council-finops.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/federal-cio-council
   - type: Website
     url: https://www.councils.gov/cioc
   - type: LegacyWebsite
-    url: https://www.cio.gov
+    url: https://cio.gov
   - type: ParentAgency
     name: Office of Management and Budget (OMB)
     url: https://www.whitehouse.gov/omb/
@@ -112,11 +125,9 @@ common:
     url: https://www.law.cornell.edu/uscode/text/44/3603
   - type: ExecutiveOrder
     name: Executive Order 13011 (1996)
-    url: https://www.federalregister.gov/documents/1996/07/19/96-18638/federal-information-technology
-  - type: FederalCIO
-    url: https://www.whitehouse.gov/omb/management/ofcio/
+    url: https://www.federalregister.gov/documents/1996/07/19/96-18555/federal-information-technology
   - type: GSAOfficeOfGovernmentwidePolicy
-    url: https://www.gsa.gov/policy-regulations/policy/it-policy
+    url: https://www.gsa.gov/policy-regulations/policy/information-technology-policy
   - type: FedRAMP
     url: https://www.fedramp.gov
   - type: TechnologyModernizationFund
@@ -124,7 +135,22 @@ common:
   - type: USAGov
     url: https://www.usa.gov/agencies/chief-information-officers-council
   - type: PrivacyPolicy
-    url: https://www.councils.gov/privacy
+    url: https://www.gsa.gov/website-information/website-policies
+  - type: KnowledgeBase
+    name: CIOC Resources Library
+    url: https://www.councils.gov/resources/?council=CIOC
+  - type: Newsroom
+    name: CIOC News & Events
+    url: https://www.councils.gov/news-events/?council=CIOC
+  - type: x-CouncilMembers
+    name: CIOC Leadership & Members
+    url: https://www.councils.gov/cioc/members-leaders/
+  - type: x-Charter
+    name: CIO Council Charter (December 2020)
+    url: https://www.councils.gov/docs/CIOC-Charter-Dec-2020.pdf
+  - type: SourceCode
+    name: GSA/councils.gov (Astro site source)
+    url: https://github.com/GSA/councils.gov
   - name: Committees
     type: Committees
     data:
@@ -181,3 +207,34 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+x-enrichment:
+  date: '2026-09-05'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    The CIO Council is a federal interagency policy forum, not a software publisher — its output is
+    guidance, playbooks and a charter served as static Astro pages and PDFs on councils.gov, and a
+    named-path probe of www.councils.gov, councils.gov and cio.gov on 2026-09-05 returned 404 (or a
+    301 to www) for every OpenAPI, GraphQL, MCP, agent-card, llms.txt and apis.json location, with a
+    negative-control path confirming none of those hosts echoes paths.
+  evidence:
+    - url: https://www.councils.gov/cioc/
+      status: 200
+    - url: https://www.councils.gov/openapi.json
+      status: 404
+    - url: https://www.councils.gov/.well-known/agent-card.json
+      status: 404
+    - url: https://www.councils.gov/.well-known/apis.json
+      status: 404
+    - url: https://cio.gov/
+      status: 301
+    - url: https://cio.gov/openapi.json
+      status: 404
+    - url: https://www.councils.gov/.well-known/cioc-negative-control-7f3ab91c.json
+      status: 404
+  checked: '2026-09-05'

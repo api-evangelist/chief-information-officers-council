@@ -3,95 +3,33 @@ specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
 provider: Chief Information Officers Council
 providerId: chief-information-officers-council
+generated: '2026-09-05'
 created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-04'
-tags:
-  - CIO
-  - Cloud
-  - Cybersecurity
-  - E-Government
-  - Federal Government
-  - IT Modernization
-  - Information Technology
-  - Interagency Council
-  - OMB
-  - Public Sector
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Chief Information Officers Council API surface.
-  Captures per-tier quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold
-  values to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Chief Information Officers Council Resources
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Chief Information Officers Council Resources
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Chief Information Officers Council Resources
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Chief Information Officers Council Resources
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Chief Information Officers Council Resources
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+modified: '2026-09-05'
+method: searched
+source: https://www.councils.gov/cioc/
+limit_count: 0
+description: >-
+  The Chief Information Officers Council publishes no API and therefore documents no rate limits,
+  quotas, throttling behaviour, response headers or exhaustion status codes. Probed 2026-09-05:
+  councils.gov and cio.gov serve static content only, with no API host, no developer documentation
+  and no machine-readable contract. limit_count is 0 — an honest zero, not an unchecked field.
+note: >-
+  REPLACED A SCAFFOLD. Until 2026-09-05 this file asserted five invented tier limits (10/100/1000
+  requests per minute), invented burst ceilings, and a full X-RateLimit-* header set the council has
+  never returned, written by the 2026-05-04 bulk sweep. None of it was observed or published. The
+  scaffold has been removed and replaced with the measured zero. See roadmap#35.
+searched:
+  - url: https://www.councils.gov/cioc/
+    status: 200
+    finding: no developer documentation, no API host, no published limits
+  - url: https://www.councils.gov/openapi.json
+    status: 404
+    finding: no machine-readable contract from which limits could be derived
+headers: {}
+responseCodes: {}
+limits: []
+policies: []
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
