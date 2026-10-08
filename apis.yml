@@ -107,6 +107,8 @@ apis:
       - type: Statute
         url: https://www.law.cornell.edu/uscode/text/44/3603
 common:
+  - type: RateLimits
+    url: rate-limits/chief-information-officers-council-rate-limits.yml
   - type: DomainSecurity
     url: security/chief-information-officers-council-domain-security.yml
   - type: LLMsTxt
